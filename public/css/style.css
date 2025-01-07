@@ -1,11 +1,76 @@
 body {
   margin: 0;
 }
-body header {
-  height: 70%;
+body .loginsection {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
 }
-body header h1 {
+body .loginsection .loginmodule {
+  font-family: "Inter", serif;
+  display: flex;
+  height: 50%;
+  width: 50%;
+  box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.1882352941);
+  border-radius: 4px;
+  overflow: hidden;
+}
+body .loginsection .loginmodule__form {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 16px;
+  background-color: #fff;
+  width: 70%;
+}
+body .loginsection .loginmodule__form--p {
+  align-self: baseline;
   margin: 0;
+  margin-top: 10%;
+  transform: translate(20px, 9px);
+  background-color: #fff;
+  padding: 0 4px;
+}
+body .loginsection .loginmodule__form--input {
+  width: 90%;
+  padding: 12px 16px;
+  font-size: large;
+  outline: none;
+  border: 3px solid rgba(0, 0, 0, 0.1882352941);
+  border-radius: 4px;
+  transition: 0.2s all;
+  caret-color: #7699ae;
+}
+body .loginsection .loginmodule__form--input:focus, body .loginsection .loginmodule__form--input:hover {
+  border: 3px solid #7699ae;
+}
+body .loginsection .loginmodule__form--button {
+  display: flex;
+  width: 50%;
+  border-radius: 4px;
+  background-color: #7699ae;
+  color: #fff;
+  justify-content: center;
+  padding: 8px 0;
+  margin-top: 20%;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+body .loginsection .loginmodule__form--button:hover {
+  transform: scale(1.1);
+}
+body .loginsection .loginmodule__lock {
+  background-color: #7699ae;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 body main {
   display: flex;

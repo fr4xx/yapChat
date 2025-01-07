@@ -16,35 +16,32 @@
 </head>
 
 <body>
-  <main>
+  <section class="loginsection">
+    <div class="loginmodule">
+      <div class="loginmodule__form">
+        <h1 class="loginmodule__form--h1">Welcome to YapChat</h1>
+        <h3 class="loginmodule__form--h3">Please select your username before you start yapping.</h3>
+        <p class="loginmodule__form--p">Username</p>
+        <input type="text" class="loginmodule__form--input">
+        <div class="loginmodule__form--button">ENTER</div>
+      </div>
+      <div class="loginmodule__lock">
+        <img src="media/img/lock.png">
+      </div>
+    </div>
+  </section>
+
+  <main style="display: none;">
     <section class="usersection">
       <h1 class="usersection__h1">Online Users:</h1>
       <ul class="usersection__userlist">
-        <li class="usersection__userlist--user" userlistValue="Fr4xx">Fr4xx</li>
-        <li class="usersection__userlist--user" userlistValue="Ch0r0k0">Ch0r0k0</li>
+
       </ul>
     </section>
     <section class="chatsection">
       <div class="chatsection__chatfield">
         <!-- !!! INSERT LATEST MESSAGE HERE !!! -->
-        <div class="sent-message">
-          <div class="sent-message__box">
-            <div class="sent-message__box--author">Fr4xx</div>
-            <div class="sent-message__box--text">This is a sent message.</div>
-          </div>
-        </div>
-        <div class="received-message">
-          <div class="received-message__box">
-            <div class="received-message__box--author">Fr4xx</div>
-            <div class="received-message__box--text">This is a received message.</div>
-          </div>
-        </div>
-        <div class="sent-message">
-          <div class="sent-message__box">
-            <div class="sent-message__box--author">Fr4xx</div>
-            <div class="sent-message__box--text">This is a sent message.</div>
-          </div>
-        </div>
+
       </div>
       <div class="chatsection__textfield">
         <textarea type="text" placeholder="Type here..." class="chatsection__textfield--textbox"></textarea>

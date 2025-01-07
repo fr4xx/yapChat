@@ -6,14 +6,89 @@ $secondary-color: #e7e5e5;
 $received-messagebox-color: #d9d9d9;
 $sent-messagebox-color: #b0eba4;
 $box-shadow: 6px 6px 10px 1px #00000030;
+$login-box-shadow: 0px 0px 15px 1px #00000030;
 
 body {
 	margin: 0;
 
-	header {
-		height: 70%;
-		h1 {
-			margin: 0;
+	.loginsection {
+		display: flex;
+		height: 100%;
+		width: 100%;
+		left: 0;
+		overflow: hidden;
+		position: fixed;
+		justify-content: center;
+		align-items: center;
+
+		.loginmodule {
+			font-family: $primary-font;
+			display: flex;
+			height: 50%;
+			width: 50%;
+			box-shadow: $login-box-shadow;
+			border-radius: 4px;
+			overflow: hidden;
+
+			&__form {
+				display: flex;
+				align-items: center;
+				text-align: center;
+				flex-direction: column;
+				padding: 16px;
+				background-color: #fff;
+				width: 70%;
+
+				&--p {
+					align-self: baseline;
+					margin: 0;
+					margin-top: 10%;
+					transform: translate(20px, 9px);
+					background-color: #fff;
+					padding: 0 4px;
+				}
+
+				&--input {
+					width: 90%;
+					padding: 12px 16px;
+					font-size: large;
+					outline: none;
+					border: 3px solid #00000030;
+					border-radius: 4px;
+					transition: 0.2s all;
+					caret-color: $primary-color;
+
+					&:focus,
+					&:hover {
+						border: 3px solid $primary-color;
+					}
+				}
+
+				&--button {
+					display: flex;
+					width: 50%;
+					border-radius: 4px;
+					background-color: $primary-color;
+					color: #fff;
+					justify-content: center;
+					padding: 8px 0;
+					margin-top: 20%;
+					cursor: pointer;
+					transition: 0.2s all;
+
+					&:hover {
+						transform: scale(1.1);
+					}
+				}
+			}
+
+			&__lock {
+				background-color: #7699ae;
+				width: 30%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
 		}
 	}
 
