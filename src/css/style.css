@@ -83,6 +83,7 @@ body main .chatsection__textbox {
 }
 body main .chatsection__textbox--textfield {
   background-color: #e7e5e5;
+  font-family: "Inter", serif;
   height: 3rem;
   width: 70%;
   margin-right: 0.5rem;
