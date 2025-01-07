@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>YapChat</title>
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="icon" href="src/media/img/icon.ico" type="image/x-icon">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+  </style>
+  <script src="src/js/main.js"></script>
+</head>
+
+<body>
+  <main>
+    <section class="usersection">
+      <h1 class="usersection__h1">Online Users:</h1>
+      <ul class="usersection__userlist">
+        <li class="usersection__userlist--user" userlistValue="Fr4xx">Fr4xx</li>
+        <li class="usersection__userlist--user" userlistValue="Ch0r0k0">Ch0r0k0</li>
+      </ul>
+    </section>
+    <section class="chatsection">
+      <div class="chatsection__chatfield">
+        <!-- !!! INSERT LATEST MESSAGE HERE !!! -->
+        <div class="sent-message">
+          <div class="sent-message__box">
+            <div class="sent-message__box--author">Fr4xx</div>
+            <div class="sent-message__box--text">This is a sent message.</div>
+          </div>
+        </div>
+        <div class="received-message">
+          <div class="received-message__box">
+            <div class="received-message__box--author">Fr4xx</div>
+            <div class="received-message__box--text">This is a received message.</div>
+          </div>
+        </div>
+        <div class="sent-message">
+          <div class="sent-message__box">
+            <div class="sent-message__box--author">Fr4xx</div>
+            <div class="sent-message__box--text">This is a sent message.</div>
+          </div>
+        </div>
+      </div>
+      <div class="chatsection__textbox">
+        <textarea type="text" class="chatsection__textbox--textfield"></textarea>
+        <button type="button" class="chatsection__textbox--sendbtn">send</button>
+      </div>
+    </section>
+  </main>
+
+</body>
+
+</html>

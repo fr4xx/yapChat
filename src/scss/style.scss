@@ -1,0 +1,150 @@
+$primary-font: "Inter", serif;
+
+$primary-color: #7699ae;
+$secondary-color: #e7e5e5;
+
+$received-messagebox-color: #d9d9d9;
+$sent-messagebox-color: #b0eba4;
+$box-shadow: 6px 6px 10px 1px #00000030;
+
+body {
+	margin: 0;
+
+	header {
+		height: 70%;
+		h1 {
+			margin: 0;
+		}
+	}
+
+	main {
+		display: flex;
+		height: 100%;
+		width: 100%;
+		left: 0;
+		overflow: hidden;
+		position: fixed;
+		.usersection {
+			font-family: $primary-font;
+			background-color: $secondary-color;
+			border: 2px solid black;
+			width: 30%;
+
+			&__h1 {
+			}
+		}
+
+		.chatsection {
+			background-color: $primary-color;
+			border: 2px solid black;
+			width: 70%;
+
+			&__chatfield {
+				border-bottom: 2px solid black;
+				height: 85%;
+				display: flex;
+				flex-direction: column-reverse;
+				max-height: 90%;
+				overflow-y: auto;
+
+				.received-message {
+					font-family: $primary-font;
+					display: flex;
+					flex-direction: row;
+					&__box {
+						background-color: $received-messagebox-color;
+						box-shadow: $box-shadow;
+						width: fit-content;
+						border-radius: 2px;
+						margin: 1rem;
+
+						&--author {
+							padding: 0.5rem 0.5rem 0.25rem 0.5rem;
+							padding-bottom: 0.25rem;
+							color: #158432;
+						}
+
+						&--text {
+							padding: 0.25rem 0.5rem 0.5rem 0.5rem;
+						}
+					}
+				}
+
+				.sent-message {
+					font-family: $primary-font;
+					display: flex;
+					flex-direction: row-reverse;
+					&__box {
+						background-color: $sent-messagebox-color;
+						box-shadow: $box-shadow;
+						width: fit-content;
+						margin: 1rem;
+						border-radius: 2px;
+
+						&--author {
+							padding: 0.5rem 0.5rem 0.25rem 0.5rem;
+							padding-bottom: 0.25rem;
+							color: #158432;
+						}
+
+						&--text {
+							padding: 0.25rem 0.5rem 0.5rem 0.5rem;
+						}
+					}
+				}
+			}
+
+			&__textbox {
+				display: flex;
+				border-top: 2px solid black;
+				height: 15%;
+				align-items: center;
+				justify-content: center;
+
+				&--textfield {
+					background-color: $secondary-color;
+					height: 3rem;
+					width: 70%;
+					margin-right: 0.5rem;
+					word-wrap: break-word;
+					word-break: break-all;
+					resize: none;
+					border-radius: 2px;
+					padding: 16px;
+					border: 0;
+					box-shadow: $box-shadow;
+
+					&::-webkit-scrollbar {
+						width: 10px;
+					}
+
+					&::-webkit-scrollbar-track {
+						background: #f1f1f1;
+					}
+
+					&::-webkit-scrollbar-thumb {
+						background: #888;
+					}
+
+					&::-webkit-scrollbar-thumb:hover {
+						background: $sent-messagebox-color;
+					}
+
+					&:focus {
+						outline: 0;
+					}
+				}
+
+				&--sendbtn {
+					background-color: $sent-messagebox-color;
+					border: 0;
+					height: 3rem;
+					width: 3rem;
+					border-radius: 50%;
+					margin-left: 0.5rem;
+					box-shadow: $box-shadow;
+				}
+			}
+		}
+	}
+}
