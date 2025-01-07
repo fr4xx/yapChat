@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>YapChat</title>
-  <link rel="stylesheet" href="src/css/style.css">
-  <link rel="icon" href="src/media/img/icon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="media/img/icon.ico" type="image/x-icon">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
   </style>
-  <script src="src/js/main.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/main.js" defer></script>
 </head>
 
 <body>
@@ -45,9 +46,9 @@
           </div>
         </div>
       </div>
-      <div class="chatsection__textbox">
-        <textarea type="text" class="chatsection__textbox--textfield"></textarea>
-        <button type="button" class="chatsection__textbox--sendbtn">send</button>
+      <div class="chatsection__textfield">
+        <textarea type="text" placeholder="Type here..." class="chatsection__textfield--textbox"></textarea>
+        <button type="button" class="chatsection__textfield--sendbtn">send</button>
       </div>
     </section>
   </main>

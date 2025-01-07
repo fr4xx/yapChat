@@ -74,14 +74,14 @@ body main .chatsection__chatfield .sent-message__box--author {
 body main .chatsection__chatfield .sent-message__box--text {
   padding: 0.25rem 0.5rem 0.5rem 0.5rem;
 }
-body main .chatsection__textbox {
+body main .chatsection__textfield {
   display: flex;
   border-top: 2px solid black;
   height: 15%;
   align-items: center;
   justify-content: center;
 }
-body main .chatsection__textbox--textfield {
+body main .chatsection__textfield--textbox {
   background-color: #e7e5e5;
   font-family: "Inter", serif;
   height: 3rem;
@@ -95,22 +95,22 @@ body main .chatsection__textbox--textfield {
   border: 0;
   box-shadow: 6px 6px 10px 1px rgba(0, 0, 0, 0.1882352941);
 }
-body main .chatsection__textbox--textfield::-webkit-scrollbar {
+body main .chatsection__textfield--textbox::-webkit-scrollbar {
   width: 10px;
 }
-body main .chatsection__textbox--textfield::-webkit-scrollbar-track {
+body main .chatsection__textfield--textbox::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-body main .chatsection__textbox--textfield::-webkit-scrollbar-thumb {
+body main .chatsection__textfield--textbox::-webkit-scrollbar-thumb {
   background: #888;
 }
-body main .chatsection__textbox--textfield::-webkit-scrollbar-thumb:hover {
+body main .chatsection__textfield--textbox::-webkit-scrollbar-thumb:hover {
   background: #b0eba4;
 }
-body main .chatsection__textbox--textfield:focus {
+body main .chatsection__textfield--textbox:focus {
   outline: 0;
 }
-body main .chatsection__textbox--sendbtn {
+body main .chatsection__textfield--sendbtn {
   background-color: #b0eba4;
   border: 0;
   height: 3rem;

@@ -94,14 +94,14 @@ body {
 				}
 			}
 
-			&__textbox {
+			&__textfield {
 				display: flex;
 				border-top: 2px solid black;
 				height: 15%;
 				align-items: center;
 				justify-content: center;
 
-				&--textfield {
+				&--textbox {
 					background-color: $secondary-color;
 					font-family: $primary-font;
 					height: 3rem;
