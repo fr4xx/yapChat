@@ -58,7 +58,7 @@ body .loginsection .loginmodule__form--button {
   color: #fff;
   justify-content: center;
   padding: 8px 0;
-  margin-top: 20%;
+  margin-top: 5%;
   cursor: pointer;
   transition: 0.2s all;
 }
@@ -98,9 +98,11 @@ body main .usersection__userlist--user {
   font-weight: 700;
   border-radius: 4px;
   margin-bottom: 4px;
+  border: 0 0 2px 0 solid #7699ae;
 }
 body main .usersection__userlist--user:hover {
   background-color: rgba(0, 0, 0, 0.1882352941);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1882352941);
 }
 body main .chatsection {
   background-color: #7699ae;

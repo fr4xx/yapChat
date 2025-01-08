@@ -119,9 +119,11 @@ body {
 					font-weight: 700;
 					border-radius: 4px;
 					margin-bottom: 4px;
+					border: 0 0 2px 0 solid $primary-color;
 
 					&:hover {
 						background-color: #00000030;
+						border-bottom: 2px solid #00000030;
 					}
 				}
 			}
