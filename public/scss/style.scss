@@ -72,7 +72,7 @@ body {
 					color: #fff;
 					justify-content: center;
 					padding: 8px 0;
-					margin-top: 20%;
+					margin-top: 5%;
 					cursor: pointer;
 					transition: 0.2s all;
 
@@ -106,6 +106,23 @@ body {
 			width: 30%;
 
 			&__h1 {
+				text-align: center;
+			}
+
+			&__userlist {
+				padding: 16px;
+
+				&--user {
+					list-style: none;
+					padding: 16px 8px;
+					font-weight: 700;
+					border-radius: 4px;
+					margin-bottom: 4px;
+
+					&:hover {
+						background-color: #00000030;
+					}
+				}
 			}
 		}
 
@@ -137,6 +154,7 @@ body {
 							padding: 0.5rem 0.5rem 0.25rem 0.5rem;
 							padding-bottom: 0.25rem;
 							color: #158432;
+							font-weight: 700;
 						}
 
 						&--text {
@@ -159,7 +177,8 @@ body {
 						&--author {
 							padding: 0.5rem 0.5rem 0.25rem 0.5rem;
 							padding-bottom: 0.25rem;
-							color: #158432;
+							color: #0421d3;
+							font-weight: 700;
 						}
 
 						&--text {
@@ -219,6 +238,10 @@ body {
 					border-radius: 50%;
 					margin-left: 0.5rem;
 					box-shadow: $box-shadow;
+					display: flex;
+					justify-content: center;
+					align-items: stretch;
+					padding: 8px;
 				}
 			}
 		}

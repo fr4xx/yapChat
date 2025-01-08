@@ -33,9 +33,11 @@
 
   <main style="display: none;">
     <section class="usersection">
+      <h1 class="usersection__h1">🗣️ YapChat 🗣️</h1>
       <h1 class="usersection__h1">Online Users:</h1>
       <ul class="usersection__userlist">
-
+        <li class="usersection__userlist--user" userlistValue="${user}">${user}</li>
+        <li class="usersection__userlist--user" userlistValue="${user}">${user}</li>
       </ul>
     </section>
     <section class="chatsection">
@@ -45,7 +47,7 @@
       </div>
       <div class="chatsection__textfield">
         <textarea type="text" placeholder="Type here..." class="chatsection__textfield--textbox"></textarea>
-        <button type="button" class="chatsection__textfield--sendbtn">send</button>
+        <button type="button" class="chatsection__textfield--sendbtn"><img src="media/img/send.png"></button>
       </div>
     </section>
   </main>

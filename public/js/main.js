@@ -30,12 +30,19 @@ const login = () => {
 };
 
 const sendMessage = () => {
-	let messageText = textField.value;
-	let message = { user: username, text: messageText };
-	console.log(message);
-	socket.emit("chat message", message);
-	textField.value = "";
-	console.log("Sent Message: " + message);
+	if (!textField.value == "") {
+		let messageText = textField.value.replace(/\n/g, "<br>");
+		let message = { user: username, text: messageText };
+		console.log(message);
+		socket.emit("chat message", message);
+		textField.value = "";
+		console.log("Sent Message: " + message);
+	}
+};
+
+const mention = (e) => {
+	console.log(e);
+	textField.insertAdjacentText("beforeend", "@" + e.srcElement.innerHTML + " ");
 };
 
 socket.on("chat message", (msg) => {
@@ -73,11 +80,19 @@ socket.on("updateUsersList", (usersList) => {
 	userListSection.innerHTML = "";
 	usersList.forEach((user) => {
 		let html = `
-		<li class="usersection__userlist--user" userlistValue="${user}">${user}</li>
+		<li class="usersection__userlist--user" id="userListField${user}">${user}</li>
 		`;
 		userListSection.insertAdjacentHTML("beforeend", html);
+		const userListField = document.getElementById("userListField" + user);
+		userListField.addEventListener("click", mention);
 	});
 });
 
 sendBtn.addEventListener("click", sendMessage);
 loginBtn.addEventListener("click", login);
+textField.addEventListener("keypress", (e) => {
+	if (e.key === "Enter" && !e.shiftKey) {
+		e.preventDefault();
+		sendMessage();
+	}
+});

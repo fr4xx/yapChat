@@ -86,6 +86,22 @@ body main .usersection {
   border: 2px solid black;
   width: 30%;
 }
+body main .usersection__h1 {
+  text-align: center;
+}
+body main .usersection__userlist {
+  padding: 16px;
+}
+body main .usersection__userlist--user {
+  list-style: none;
+  padding: 16px 8px;
+  font-weight: 700;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+body main .usersection__userlist--user:hover {
+  background-color: rgba(0, 0, 0, 0.1882352941);
+}
 body main .chatsection {
   background-color: #7699ae;
   border: 2px solid black;
@@ -115,6 +131,7 @@ body main .chatsection__chatfield .received-message__box--author {
   padding: 0.5rem 0.5rem 0.25rem 0.5rem;
   padding-bottom: 0.25rem;
   color: #158432;
+  font-weight: 700;
 }
 body main .chatsection__chatfield .received-message__box--text {
   padding: 0.25rem 0.5rem 0.5rem 0.5rem;
@@ -134,7 +151,8 @@ body main .chatsection__chatfield .sent-message__box {
 body main .chatsection__chatfield .sent-message__box--author {
   padding: 0.5rem 0.5rem 0.25rem 0.5rem;
   padding-bottom: 0.25rem;
-  color: #158432;
+  color: #0421d3;
+  font-weight: 700;
 }
 body main .chatsection__chatfield .sent-message__box--text {
   padding: 0.25rem 0.5rem 0.5rem 0.5rem;
@@ -183,6 +201,10 @@ body main .chatsection__textfield--sendbtn {
   border-radius: 50%;
   margin-left: 0.5rem;
   box-shadow: 6px 6px 10px 1px rgba(0, 0, 0, 0.1882352941);
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 8px;
 }
 
 /*# sourceMappingURL=style.css.map */
