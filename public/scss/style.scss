@@ -99,6 +99,7 @@ body {
 		left: 0;
 		overflow: hidden;
 		position: fixed;
+
 		.usersection {
 			font-family: $primary-font;
 			background-color: $secondary-color;
@@ -143,6 +144,7 @@ body {
 					font-family: $primary-font;
 					display: flex;
 					flex-direction: row;
+
 					&__box {
 						background-color: $received-messagebox-color;
 						box-shadow: $box-shadow;
@@ -167,6 +169,7 @@ body {
 					font-family: $primary-font;
 					display: flex;
 					flex-direction: row-reverse;
+
 					&__box {
 						background-color: $sent-messagebox-color;
 						box-shadow: $box-shadow;
