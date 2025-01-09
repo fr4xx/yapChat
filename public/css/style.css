@@ -160,6 +160,18 @@ body main .chatsection__chatfield .sent-message__box--author {
 body main .chatsection__chatfield .sent-message__box--text {
   padding: 0.25rem 0.5rem 0.5rem 0.5rem;
 }
+body main .chatsection__chatfield .infomessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+}
+body main .chatsection__chatfield .infomessage span {
+  font-family: "Inter", serif;
+  padding: 6px;
+  background-color: #fcff97;
+  border-radius: 4px;
+}
 body main .chatsection__textfield {
   display: flex;
   border-top: 2px solid black;

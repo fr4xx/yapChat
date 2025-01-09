@@ -21,7 +21,7 @@ var socket = io();
 // ----------------------- CODE ------------------------
 
 const login = () => {
-	if (loginUsername.value.length >= 3) {
+	if (loginUsername.value.length >= 3 && loginUsername.value.length <= 16) {
 		username = loginUsername.value;
 		loginSection.style.display = "none";
 		appSection.style.display = "flex";
@@ -86,6 +86,15 @@ socket.on("updateUsersList", (usersList) => {
 			const userListField = document.getElementById("userListField" + user);
 			userListField.addEventListener("click", mention);
 		});
+	}
+});
+
+socket.on("new user", (user) => {
+	if (isLoggedIn) {
+		let html = `
+				<div class="infomessage"><span><b>${user}</b> joined the chat.</span></div>
+				`;
+		chatField.insertAdjacentHTML("afterbegin", html);
 	}
 });
 

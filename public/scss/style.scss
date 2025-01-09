@@ -192,6 +192,20 @@ body {
 						}
 					}
 				}
+
+				.infomessage {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					height: 64px;
+
+					span {
+						font-family: $primary-font;
+						padding: 6px;
+						background-color: #fcff97;
+						border-radius: 4px;
+					}
+				}
 			}
 
 			&__textfield {

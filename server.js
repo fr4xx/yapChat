@@ -33,6 +33,7 @@ io.on("connection", (socket) => {
 
 	socket.on("login", (username) => {
 		console.log("[IN] " + username + " logged in.");
+		io.emit("new user", username);
 		activeUser.push(username);
 		activeUserCount = activeUser.length;
 		io.emit("updateUsersList", activeUser);
