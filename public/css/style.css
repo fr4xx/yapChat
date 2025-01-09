@@ -103,6 +103,7 @@ body main .usersection__userlist--user {
 body main .usersection__userlist--user:hover {
   background-color: rgba(0, 0, 0, 0.1882352941);
   border-bottom: 2px solid rgba(0, 0, 0, 0.1882352941);
+  cursor: pointer;
 }
 body main .chatsection {
   background-color: #7699ae;
@@ -207,6 +208,11 @@ body main .chatsection__textfield--sendbtn {
   justify-content: center;
   align-items: stretch;
   padding: 8px;
+  transition: 0.2s all;
+}
+body main .chatsection__textfield--sendbtn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 /*# sourceMappingURL=style.css.map */

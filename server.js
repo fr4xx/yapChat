@@ -20,6 +20,7 @@ io.on("connection", (socket) => {
 	console.log("[INFO] New connection!");
 
 	socket.on("chat message", (msg) => {
+		console.log("[MSG] " + msg.user + ": " + msg.text);
 		io.emit("chat message", msg);
 	});
 
@@ -35,12 +36,14 @@ io.on("connection", (socket) => {
 		activeUser.push(username);
 		activeUserCount = activeUser.length;
 		io.emit("updateUsersList", activeUser);
+		console.log("[INFO] Updated active users");
 	});
 
 	socket.on("isActive", (username) => {
 		activeUser.push(username);
 		if (activeUser.length == activeUserCount) {
 			io.emit("updateUsersList", activeUser);
+			console.log("[INFO] Updated active users");
 		}
 	});
 });

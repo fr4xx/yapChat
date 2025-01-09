@@ -124,6 +124,7 @@ body {
 					&:hover {
 						background-color: #00000030;
 						border-bottom: 2px solid #00000030;
+						cursor: pointer;
 					}
 				}
 			}
@@ -247,6 +248,12 @@ body {
 					justify-content: center;
 					align-items: stretch;
 					padding: 8px;
+					transition: 0.2s all;
+
+					&:hover {
+						cursor: pointer;
+						transform: scale(1.1);
+					}
 				}
 			}
 		}

@@ -2,7 +2,6 @@
 
 // --------------------- VARIABLES ---------------------
 let username;
-let isConnected = false;
 
 // ------------------ QUERY SELECTORS ------------------
 const loginSection = document.querySelector(".loginsection");
@@ -33,20 +32,16 @@ const sendMessage = () => {
 	if (!textField.value == "") {
 		let messageText = textField.value.replace(/\n/g, "<br>");
 		let message = { user: username, text: messageText };
-		console.log(message);
 		socket.emit("chat message", message);
 		textField.value = "";
-		console.log("Sent Message: " + message);
 	}
 };
 
 const mention = (e) => {
-	console.log(e);
 	textField.insertAdjacentText("beforeend", "@" + e.srcElement.innerHTML + " ");
 };
 
 socket.on("chat message", (msg) => {
-	console.log("Received Message: " + msg.user);
 	let html;
 	if (msg.user == username) {
 		html = `
@@ -71,12 +66,12 @@ socket.on("chat message", (msg) => {
 });
 
 socket.on("stillActive", () => {
-	console.log("stillActive");
-	socket.emit("isActive", username);
+	if (username) {
+		socket.emit("isActive", username);
+	}
 });
 
 socket.on("updateUsersList", (usersList) => {
-	console.log(usersList);
 	userListSection.innerHTML = "";
 	usersList.forEach((user) => {
 		let html = `
