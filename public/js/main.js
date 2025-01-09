@@ -2,6 +2,7 @@
 
 // --------------------- VARIABLES ---------------------
 let username;
+let isLoggedIn = false;
 
 // ------------------ QUERY SELECTORS ------------------
 const loginSection = document.querySelector(".loginsection");
@@ -25,6 +26,7 @@ const login = () => {
 		loginSection.style.display = "none";
 		appSection.style.display = "flex";
 		socket.emit("login", username);
+		isLoggedIn = true;
 	}
 };
 
@@ -42,45 +44,49 @@ const mention = (e) => {
 };
 
 socket.on("chat message", (msg) => {
-	let html;
-	if (msg.user == username) {
-		html = `
-			<div class="sent-message">
-				<div class="sent-message__box">
-					<div class="sent-message__box--author">${msg.user}</div>
-					<div class="sent-message__box--text">${msg.text}</div>
+	if (isLoggedIn) {
+		let html;
+		if (msg.user == username) {
+			html = `
+				<div class="sent-message">
+					<div class="sent-message__box">
+						<div class="sent-message__box--author">${msg.user}</div>
+						<div class="sent-message__box--text">${msg.text}</div>
+					</div>
 				</div>
-			</div>
-			`;
-	} else if (msg.user != username) {
-		html = `
-			<div class="received-message">
-				<div class="received-message__box">
-					<div class="received-message__box--author">${msg.user}</div>
-					<div class="received-message__box--text">${msg.text}</div>
+				`;
+		} else if (msg.user != username) {
+			html = `
+				<div class="received-message">
+					<div class="received-message__box">
+						<div class="received-message__box--author">${msg.user}</div>
+						<div class="received-message__box--text">${msg.text}</div>
+					</div>
 				</div>
-			</div>
-			`;
+				`;
+		}
+		chatField.insertAdjacentHTML("afterbegin", html);
 	}
-	chatField.insertAdjacentHTML("afterbegin", html);
 });
 
 socket.on("stillActive", () => {
-	if (username) {
+	if (isLoggedIn) {
 		socket.emit("isActive", username);
 	}
 });
 
 socket.on("updateUsersList", (usersList) => {
-	userListSection.innerHTML = "";
-	usersList.forEach((user) => {
-		let html = `
-		<li class="usersection__userlist--user" id="userListField${user}">${user}</li>
-		`;
-		userListSection.insertAdjacentHTML("beforeend", html);
-		const userListField = document.getElementById("userListField" + user);
-		userListField.addEventListener("click", mention);
-	});
+	if (isLoggedIn) {
+		userListSection.innerHTML = "";
+		usersList.forEach((user) => {
+			let html = `
+			<li class="usersection__userlist--user" id="userListField${user}">${user}</li>
+			`;
+			userListSection.insertAdjacentHTML("beforeend", html);
+			const userListField = document.getElementById("userListField" + user);
+			userListField.addEventListener("click", mention);
+		});
+	}
 });
 
 sendBtn.addEventListener("click", sendMessage);
