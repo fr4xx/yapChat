@@ -21,7 +21,7 @@ var socket = io();
 // ----------------------- CODE ------------------------
 
 const login = () => {
-	if (loginUsername.value === loginUsername.value.trim()) {
+	if (!/\s/.test(loginUsername.value)) {
 		if (loginUsername.value.length >= 3 && loginUsername.value.length <= 16) {
 			username = loginUsername.value;
 			loginSection.style.display = "none";
