@@ -21,17 +21,28 @@ var socket = io();
 // ----------------------- CODE ------------------------
 
 const login = () => {
-	if (loginUsername.value.length >= 3 && loginUsername.value.length <= 16) {
-		username = loginUsername.value;
-		loginSection.style.display = "none";
-		appSection.style.display = "flex";
-		socket.emit("login", username);
-		isLoggedIn = true;
+	if (loginUsername.value === loginUsername.value.trim()) {
+		if (loginUsername.value.length >= 3 && loginUsername.value.length <= 16) {
+			username = loginUsername.value;
+			loginSection.style.display = "none";
+			appSection.style.display = "flex";
+			socket.emit("login", username);
+			isLoggedIn = true;
+		} else if (loginUsername.value.length < 3) {
+			console.error("🔴🔴🔴 | Username can't contain less than 3 characters!");
+			// TO-DO!! | Handle error
+		} else if (loginUsername.value.length > 16) {
+			console.error("🔴🔴🔴 | Username can't contain more than 16 characters!");
+			// TO-DO!! | Handle error
+		}
+	} else {
+		console.error("🔴🔴🔴 | Username can't contain whitespace!");
+		// TO-DO!! | Handle error
 	}
 };
 
 const sendMessage = () => {
-	if (!textField.value == "") {
+	if (!textField.value.trim() == "") {
 		let messageText = textField.value.replace(/\n/g, "<br>");
 		let message = { user: username, text: messageText };
 		socket.emit("chat message", message);
@@ -40,7 +51,9 @@ const sendMessage = () => {
 };
 
 const mention = (e) => {
-	textField.insertAdjacentText("beforeend", "@" + e.srcElement.innerHTML + " ");
+	let afterText = textField.value + "@" + e.srcElement.innerHTML + " ";
+	textField.value = "";
+	textField.value = afterText;
 };
 
 socket.on("chat message", (msg) => {
@@ -48,23 +61,29 @@ socket.on("chat message", (msg) => {
 		let html;
 		if (msg.user == username) {
 			html = `
-				<div class="sent-message">
-					<div class="sent-message__box">
-						<div class="sent-message__box--author">${msg.user}</div>
-						<div class="sent-message__box--text">${msg.text}</div>
-					</div>
-				</div>
-				`;
+			<div class="sent-message">
+			<div class="sent-message__box">
+			<div class="sent-message__box--author">${msg.user}</div>
+			<div class="sent-message__box--text">${msg.text}</div>
+			</div>
+			</div>
+			`;
 		} else if (msg.user != username) {
 			html = `
-				<div class="received-message">
+			<div class="received-message">
 					<div class="received-message__box">
-						<div class="received-message__box--author">${msg.user}</div>
-						<div class="received-message__box--text">${msg.text}</div>
+					<div class="received-message__box--author">${msg.user}</div>
+					<div class="received-message__box--text">${msg.text}</div>
 					</div>
-				</div>
-				`;
+					</div>
+					`;
 		}
+
+		if (msg.text.includes("@" + username)) {
+			const mentionPattern = new RegExp(`@${username}`, "g");
+			html = html.replace(mentionPattern, `<b>@${username}</b>`);
+		}
+
 		chatField.insertAdjacentHTML("afterbegin", html);
 	}
 });
