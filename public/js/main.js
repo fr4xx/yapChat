@@ -21,9 +21,10 @@ var socket = io();
 // ----------------------- CODE ------------------------
 
 const login = () => {
-	if (!/\s/.test(loginUsername.value)) {
+	if (!/\s/.test(loginUsername.value) && !/[<>\/]/.test(loginUsername.value)) {
 		if (loginUsername.value.length >= 3 && loginUsername.value.length <= 16) {
 			username = loginUsername.value;
+			username = username.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 			loginSection.style.display = "none";
 			appSection.style.display = "flex";
 			socket.emit("login", username);
@@ -59,6 +60,7 @@ const mention = (e) => {
 socket.on("chat message", (msg) => {
 	if (isLoggedIn) {
 		let html;
+		msg.text = msg.text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 		if (msg.user == username) {
 			html = `
 			<div class="sent-message">
@@ -98,11 +100,13 @@ socket.on("updateUsersList", (usersList) => {
 	if (isLoggedIn) {
 		userListSection.innerHTML = "";
 		usersList.forEach((user) => {
+			user = user.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 			let html = `
 			<li class="usersection__userlist--user" id="userListField${user}">${user}</li>
 			`;
 			userListSection.insertAdjacentHTML("beforeend", html);
 			const userListField = document.getElementById("userListField" + user);
+			console.log(userListField);
 			userListField.addEventListener("click", mention);
 		});
 	}
@@ -110,6 +114,7 @@ socket.on("updateUsersList", (usersList) => {
 
 socket.on("new user", (user) => {
 	if (isLoggedIn) {
+		user = user.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 		let html = `
 				<div class="infomessage"><span><b>${user}</b> joined the chat.</span></div>
 				`;
