@@ -19,8 +19,14 @@ app.get("/", (req, res) => {
 io.on("connection", (socket) => {
 	console.log("[INFO] New connection!");
 
+	// Retrieve the user's IP address
+	let rawAddress = socket.handshake.headers['x-forwarded-for'] || socket.conn.remoteAddress;
+	
+	// If the address is IPv6-mapped IPv4 (starts with "::ffff:"), clean it up
+	let address = rawAddress.startsWith("::ffff:") ? rawAddress.slice(7) : rawAddress;
+	
 	socket.on("chat message", (msg) => {
-		console.log("[MSG] " + msg.user + ": " + msg.text);
+		console.log("[MSG] " + msg.user + " (" + address + "): " + msg.text);
 		io.emit("chat message", msg);
 	});
 
